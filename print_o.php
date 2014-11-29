@@ -1,3 +1,5 @@
+<?php
+
 function print_o($o,$initial=true) {
     if($initial) {
         $o = (object)array("key"=>gettype($o),"val"=>$o);
