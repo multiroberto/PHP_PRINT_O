@@ -1,5 +1,8 @@
 <?php
 
+// Created by Hamilton Cline
+// https://github.com/bronkula/PHP_PRINT_O/blob/master/print_o.php
+
 function print_o($o,$initial=true) {
     if($initial) {
         $o = (object)array("key"=>gettype($o),"val"=>$o);
