@@ -1,4 +1,4 @@
-function print_o($o,$initial=true,$str) {
+function print_o($o,$str,$initial=true) {
     if($initial) {
         $o = (object)array("key"=>gettype($o),"val"=>$o);
     }
@@ -7,7 +7,7 @@ function print_o($o,$initial=true,$str) {
         if(!$initial) $str .= "<strong>{$o->key}</strong>: ";
         $str .= "{<div style='padding-left:1em;'>";
         foreach($o->val as $k=>$v){
-            $str = print_o((object)array("key"=>$k,"val"=>$v),false,$str);
+            $str = print_o((object)array("key"=>$k,"val"=>$v),$str,false);
         }
         $str .= "</div>";
         $str .= "}</div>";
@@ -18,7 +18,7 @@ function print_o($o,$initial=true,$str) {
         if(count($o->val)) {
             $str .= "[<div style='padding-left:1em;'>";
             foreach($o->val as $k=>$v){
-                $str = print_o((object)array("key"=>$k,"val"=>$v),false,$str);
+                $str = print_o((object)array("key"=>$k,"val"=>$v),$str,false);
             }
             $str .= "</div>]";
         } else {
